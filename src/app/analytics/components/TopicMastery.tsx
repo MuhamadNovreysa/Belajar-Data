@@ -15,7 +15,7 @@ export function TopicMastery({ data }: TopicMasteryProps) {
   const masteryData = useMemo(() => {
     if (!data) return [];
 
-    return data.skills.map((skill) => ({
+    return data.skills.map((skill: any) => ({
       name: skill.name,
       level: skill.level,
       percentage: skill.percentage || 0,
