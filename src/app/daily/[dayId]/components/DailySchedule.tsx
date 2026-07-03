@@ -72,7 +72,7 @@ export function DailySchedule({
               description={session.isBreak ? `Break ${session.duration} menit` : session.subtopics.map(s => s.name).join(', ')}
               time={session.time}
               duration={session.duration}
-              status={session.isBreak ? 'completed' : (sessionProgress?.status || 'pending')}
+              status={session.isBreak ? 'completed' : (sessionProgress?.status === 'reviewing' ? 'pending' : sessionProgress?.status || 'pending')}
               type={session.isBreak ? 'break' : 'learning'}
               topics={session.subtopics.map(s => s.name)}
               resources={{
