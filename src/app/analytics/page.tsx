@@ -129,8 +129,8 @@ export default function AnalyticsPage() {
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <InsightList insights={analytics?.insights || []} />
-            <RecommendationList recommendations={analytics?.recommendations || []} />
+            insights={analytics?.insights as any || []}
+            recommendations={analytics?.recommendations as any || []}
           </div>
         </div>
       ),
