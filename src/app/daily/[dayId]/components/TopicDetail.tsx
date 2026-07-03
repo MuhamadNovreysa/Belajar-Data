@@ -78,9 +78,9 @@ export function TopicDetail({
               size="xs"
               className={
                 subtopic.difficulty === 'pemula' ? 'bg-green-100 text-green-800' :
-subtopic.difficulty === 'menengah' ? 'bg-yellow-100 text-yellow-800' :
-subtopic.difficulty === 'lanjutan' ? 'bg-orange-100 text-orange-800' :
-'bg-red-100 text-red-800'
+                subtopic.difficulty === 'menengah' ? 'bg-yellow-100 text-yellow-800' :
+                subtopic.difficulty === 'lanjutan' ? 'bg-orange-100 text-orange-800' :
+                'bg-red-100 text-red-800'
               }
             >
               {subtopic.difficulty || 'Pemula'}
@@ -126,16 +126,16 @@ subtopic.difficulty === 'lanjutan' ? 'bg-orange-100 text-orange-800' :
             </div>
           )}
 
-          {subtopic.miniPractice && isExpanded && (
+          {(subtopic as any).miniPractice && isExpanded && (
             <div className="mt-3 p-3 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
               <h5 className="text-sm font-medium text-blue-800 dark:text-blue-300">
-                💻 Latihan Mini: {subtopic.miniPractice.title}
+                💻 Latihan Mini: {(subtopic as any).miniPractice.title}
               </h5>
               <p className="text-sm text-blue-600 dark:text-blue-400">
-                {subtopic.miniPractice.instructions}
+                {(subtopic as any).miniPractice.instructions}
               </p>
               <p className="text-xs text-blue-500 dark:text-blue-400 mt-1">
-                ⏱️ {subtopic.miniPractice.estimatedTime} menit
+                ⏱️ {(subtopic as any).miniPractice.estimatedTime} menit
               </p>
             </div>
           )}
@@ -163,9 +163,9 @@ subtopic.difficulty === 'lanjutan' ? 'bg-orange-100 text-orange-800' :
             >
               🏆 Kuasai
             </Button>
-            {subtopic.additionalResources && subtopic.additionalResources.length > 0 && isExpanded && (
+            {(subtopic as any).additionalResources && (subtopic as any).additionalResources.length > 0 && isExpanded && (
               <div className="flex gap-2">
-                {subtopic.additionalResources.map((res, idx) => (
+                {(subtopic as any).additionalResources.map((res: any, idx: number) => (
                   <a
                     key={idx}
                     href={res.url}
