@@ -88,7 +88,7 @@ export function PracticeSection({
           </div>
 
           <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
-            {practice.description}
+            {(practice as any).description || 'Latihan praktik'}
           </p>
 
           {practice.skillsPracticed && practice.skillsPracticed.length > 0 && (
