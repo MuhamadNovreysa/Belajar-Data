@@ -105,26 +105,26 @@ export function TopicDetail({
             </div>
           )}
 
-          {subtopic.examples && subtopic.examples.length > 0 && isExpanded && (
-            <div className="mt-3 p-3 bg-gray-50 dark:bg-gray-900/50 rounded-lg">
-              <h5 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">📌 Contoh</h5>
-              {subtopic.examples.map((example, idx) => (
-                <div key={idx} className="mb-2 last:mb-0">
-                  <div className="text-sm font-medium text-gray-800 dark:text-gray-200">
-                    {example.title}
-                  </div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">
-                    {example.description}
-                  </div>
-                  {example.code && (
-                    <pre className="mt-1 p-2 bg-gray-100 dark:bg-gray-800 rounded text-xs overflow-x-auto">
-                      {example.code}
-                    </pre>
-                  )}
-                </div>
-              ))}
-            </div>
-          )}
+          {(subtopic as any).examples && (subtopic as any).examples.length > 0 && isExpanded && (
+  <div className="mt-3 p-3 bg-gray-50 dark:bg-gray-900/50 rounded-lg">
+    <h5 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">📌 Contoh</h5>
+    {(subtopic as any).examples.map((example: any, idx: number) => (
+      <div key={idx} className="mb-2 last:mb-0">
+        <div className="text-sm font-medium text-gray-800 dark:text-gray-200">
+          {example.title}
+        </div>
+        <div className="text-sm text-gray-600 dark:text-gray-400">
+          {example.description}
+        </div>
+        {example.code && (
+          <pre className="mt-1 p-2 bg-gray-100 dark:bg-gray-800 rounded text-xs overflow-x-auto">
+            {example.code}
+          </pre>
+        )}
+      </div>
+    ))}
+  </div>
+)}
 
           {(subtopic as any).miniPractice && isExpanded && (
             <div className="mt-3 p-3 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
