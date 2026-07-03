@@ -254,8 +254,7 @@ export function QuizSection({
             <Badge variant="secondary" size="sm">
               {(quiz as any).difficulty || 'Menengah'}
             </Badge>
-            {quiz.topicsTested?.map((topic: any) => (
-              <Badge key={topic} variant="secondary" size="sm">
+            {(quiz as any).topicsTested?.map((topic: any) => (  <Badge key={topic} variant="secondary" size="sm">
                 {topic}
               </Badge>
             ))}
