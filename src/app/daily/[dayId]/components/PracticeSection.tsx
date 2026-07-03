@@ -123,11 +123,11 @@ export function PracticeSection({
                 </div>
               )}
 
-              {practice.commonMistakes && practice.commonMistakes.length > 0 && (
-                <div className="p-3 bg-red-50 dark:bg-red-950/30 rounded-lg border border-red-200 dark:border-red-800">
+              {(practice as any).commonMistakes && (practice as any).commonMistakes.length > 0 && (
+              <div className="p-3 bg-red-50 dark:bg-red-950/30 rounded-lg border border-red-200 dark:border-red-800">
                   <h5 className="text-sm font-medium text-red-800 dark:text-red-300">⚠️ Kesalahan Umum</h5>
                   <ul className="list-disc list-inside text-sm text-red-600 dark:text-red-400">
-                    {practice.commonMistakes.split('\n').map((mistake: string, idx: number) => (
+                    {(practice as any).commonMistakes.split('\n').map((mistake: string, idx: number) => (
                     <li key={idx}>{mistake}</li>
                     ))}
                   </ul>
@@ -165,11 +165,11 @@ export function PracticeSection({
                   </div>
                 </div>
 
-                {practice.evaluationCriteria && practice.evaluationCriteria.length > 0 && (
-                  <div className="p-3 bg-gray-50 dark:bg-gray-900/50 rounded-lg">
+                {(practice as any).evaluationCriteria && (practice as any).evaluationCriteria.length > 0 && (
+                <div className="p-3 bg-gray-50 dark:bg-gray-900/50 rounded-lg">
                     <h5 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">📊 Kriteria Penilaian</h5>
-                    {practice.evaluationCriteria.map((criteria, idx) => (
-                      <div key={idx} className="flex justify-between text-sm py-1 border-b border-gray-200 dark:border-gray-700 last:border-0">
+                    {(practice as any).evaluationCriteria.map((criteria: any, idx: number) => (
+                  <div key={idx} className="flex justify-between text-sm py-1 border-b border-gray-200 dark:border-gray-700 last:border-0">
                         <span className="text-gray-600 dark:text-gray-400">{criteria.criterion}</span>
                         <span className="font-medium text-gray-700 dark:text-gray-300">{criteria.weight}%</span>
                       </div>
