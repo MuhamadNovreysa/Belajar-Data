@@ -109,8 +109,8 @@ export default function AnalyticsPage() {
               timeframe={timeframe}
             />
             <TopicMastery
-              data={analytics?.skills}
-            />
+  data={analytics?.skills ?? {}}
+/>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
