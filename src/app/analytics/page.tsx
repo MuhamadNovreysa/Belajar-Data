@@ -21,6 +21,7 @@ import { RecommendationList } from './components/RecommendationList';
 import { AnalyticsFilter } from './components/AnalyticsFilter';
 import { StatsCard } from '@/components/shared/StatsCard';
 import { AnalyticsTimeframe } from '@/lib/types/analytics.types';
+import { cn } from '@/lib/utils/helpers';
 
 export default function AnalyticsPage() {
   const { analytics, isLoading, error, recalculate, refresh } = useAnalytics({ autoRecalculate: true });
