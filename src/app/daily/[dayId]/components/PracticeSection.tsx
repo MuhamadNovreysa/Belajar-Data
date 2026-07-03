@@ -91,10 +91,10 @@ export function PracticeSection({
             {(practice as any).description || 'Latihan praktik'}
           </p>
 
-          {practice.skillsPracticed && practice.skillsPracticed.length > 0 && (
-            <div className="flex flex-wrap gap-1.5 mt-2">
-              {practice.skillsPracticed.map((skill) => (
-                <Badge key={skill} variant="secondary" size="xs">
+          {(practice as any).skillsPracticed && (practice as any).skillsPracticed.length > 0 && (
+          <div className="flex flex-wrap gap-1.5 mt-2">
+              {(practice as any).skillsPracticed.map((skill: any) => (
+            <Badge key={skill} variant="secondary" size="xs">
                   {skill}
                 </Badge>
               ))}
