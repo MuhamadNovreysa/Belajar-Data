@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/Button';
 import { Select } from '@/components/ui/Select';
 import { Input } from '@/components/ui/Input';
 import { Badge } from '@/components/ui/Badge';
+import { cn } from '@/lib/utils/helpers';
 import { AnalyticsTimeframe, AnalyticsMetricType } from '@/lib/types/analytics.types';
 
 interface AnalyticsFilterProps {
