@@ -123,7 +123,7 @@ export function QuizSection({
       correctAnswers: correct,
       wrongAnswers: totalQuestions - correct,
       skippedQuestions: answeredQuestions.filter(a => a.wasSkipped).length,
-      answeredQuestions,
+      answeredQuestions: answeredQuestions as any,
       timeSpentMinutes: Math.floor((quiz?.timeLimit || 30) - timeRemaining),
       submittedAt: new Date().toISOString(),
       attempts: (progress?.attempts || 0) + 1,
