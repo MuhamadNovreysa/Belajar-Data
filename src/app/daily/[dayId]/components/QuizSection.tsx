@@ -59,7 +59,7 @@ export function QuizSection({
   }, [isInProgress, isTimerActive, timeRemaining]);
 
   const handleStart = () => {
-    onUpdate(quiz?.id || '', {
+    onUpdate((quiz as any)?.id || '', {
       status: 'in_progress',
       startTime: new Date().toISOString(),
       timeSpentMinutes: 0,
@@ -115,7 +115,7 @@ export function QuizSection({
     const score = totalQuestions > 0 ? (correct / totalQuestions) * 100 : 0;
     const isPassed = score >= (quiz?.passingScore || 70);
 
-    onUpdate(quiz?.id || '', {
+    onUpdate((quiz as any)?.id || '', {
       status: isPassed ? 'passed' : 'failed',
       score,
       percentageScore: score,
@@ -147,7 +147,7 @@ export function QuizSection({
     setIsTimerActive(true);
     setShowHint(false);
 
-    onUpdate(quiz?.id || '', {
+    onUpdate((quiz as any)?.id || '', {
       status: 'in_progress',
       startTime: new Date().toISOString(),
       timeSpentMinutes: 0,
