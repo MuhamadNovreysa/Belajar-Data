@@ -109,7 +109,7 @@ export default function AboutPage() {
             label="Tools"
             value="5+"
             icon={<span className="text-2xl">🛠️</span>}
-            color="orange"
+            color="yellow"
           />
         </div>
 
