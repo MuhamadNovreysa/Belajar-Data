@@ -201,6 +201,7 @@ export type {
   ProgressResponse,
   ProgressDashboardData,
   ProgressAnalyticsData,
+  ProgressData,
 } from './progress.types';
 
 // ============================================================
