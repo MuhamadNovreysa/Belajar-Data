@@ -4,12 +4,12 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils/helpers';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
-import { ProgressData } from '@/lib/types';
+import { Progress } from '@/lib/types';
 import { getDayId, getCurrentDayId } from '@/lib/utils/helpers';
 
 interface WeekCalendarProps {
   dayId: number;
-  progress: ProgressData | null;
+  progress: Progress | null;
 }
 
 export function WeekCalendar({ dayId, progress }: WeekCalendarProps) {
