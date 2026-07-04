@@ -148,19 +148,20 @@ const isLocked = day.day > 1 && prevDay?.status !== 'completed';
                   >
                     <Link href={`/daily/${day.dayId}`}>
                       <DayCard
-                        day={day.day}
-                        month={month}
-                        week={currentWeekData.week}
-                        title={`Hari ${day.day}`}
-                        status={isLocked ? 'locked' : day.status}
-                        progress={day.progress}
-                        totalSessions={8}
-                        completedSessions={Math.round(day.progress / 100 * 8)}
-                        totalHours={10}
-                        completedHours={Math.round(day.progress / 100 * 10)}
-                        topics={monthData.weeks?.[currentWeekData.week - 1]?.days?.[0]?.schedule?.sessions?.flatMap((s: any) => s.subtopics?.map((sub: any) => sub.name)) || []}
-                        className={isToday ? 'ring-2 ring-blue-500 ring-offset-2' : ''}
-                      />
+  day={day.day}
+  month={month}
+  week={currentWeekData.week}
+  title={`Hari ${day.day}`}
+  status={isLocked ? 'locked' : day.status === 'reviewing' ? 'in_progress' : day.status}
+  progress={day.progress}
+  totalSessions={8}
+  completedSessions={Math.round(day.progress / 100 * 8)}
+  totalHours={10}
+  completedHours={Math.round(day.progress / 100 * 10)}
+  topics={monthData.weeks?.[currentWeekData.week - 1]?.topics?.map(t => t.name) || []}
+  className={isToday ? 'ring-2 ring-blue-500 ring-offset-2' : ''}
+/>
+                    
                     </Link>
                   </motion.div>
                 );
