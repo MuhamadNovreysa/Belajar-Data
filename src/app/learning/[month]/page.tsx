@@ -152,8 +152,15 @@ const isLocked = day.day > 1 && prevDay?.status !== 'completed';
   month={month}
   week={currentWeekData.week}
   title={`Hari ${day.day}`}
-  status={isLocked ? 'locked' : day.status === 'reviewing' ? 'in_progress' : day.status}
-  progress={day.progress}
+                        status={
+  isLocked
+    ? 'locked'
+    : day.status === 'reviewing'
+    ? 'in_progress'
+    : day.status === 'mastered'
+    ? 'completed'
+    : day.status
+                        }progress={day.progress}
   totalSessions={8}
   completedSessions={Math.round(day.progress / 100 * 8)}
   totalHours={10}
