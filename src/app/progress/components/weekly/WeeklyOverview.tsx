@@ -36,13 +36,13 @@ export function WeeklyOverview({ week, progress }: WeeklyOverviewProps) {
         completion: dayProgress?.completionPercentage || 0,
         minutes: dayMinutes,
         subtopicsTotal: dayProgress?.subtopics?.length || 0,
-        subtopicsCompleted: dayProgress?.subtopics?.filter(s => s.status === 'mastered' || s.status === 'understood').length || 0,
+        subtopicsCompleted: dayProgress?.subtopics?.filter((s: any) => s.status === 'mastered' || s.status === 'understood').length || 0,
       });
 
       totalMinutes += dayMinutes;
       if (isCompleted) completedDays++;
       totalSubtopics += dayProgress?.subtopics?.length || 0;
-      completedSubtopics += dayProgress?.subtopics?.filter(s => s.status === 'mastered' || s.status === 'understood').length || 0;
+      completedSubtopics += dayProgress?.subtopics?.filter((s: any) => s.status === 'mastered' || s.status === 'understood').length || 0;
     }
 
     const totalDays = days.length;
@@ -123,7 +123,7 @@ export function WeeklyOverview({ week, progress }: WeeklyOverviewProps) {
       />
 
       <div className="mt-4 grid grid-cols-7 gap-2">
-        {weekData.days.map((day) => (
+           {weekData.days.map((day: any) => (
           <div
             key={day.day}
             className="text-center p-2 rounded-lg bg-gray-50 dark:bg-gray-900/50"
