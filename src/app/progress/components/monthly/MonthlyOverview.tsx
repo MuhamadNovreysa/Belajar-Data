@@ -37,8 +37,8 @@ export function MonthlyOverview({ month, progress }: MonthlyOverviewProps) {
 
         totalMinutes += dayProgress.totalMinutesStudied || 0;
         totalSubtopics += dayProgress.subtopics?.length || 0;
-        completedSubtopics += dayProgress.subtopics?.filter(s => s.status === 'mastered' || s.status === 'understood').length || 0;
-
+        completedSubtopics += dayProgress.subtopics?.filter((s: any) => s.status === 'mastered' || s.status === 'understood').length || 0;
+        
         if (dayProgress.quiz?.quizId) {
           totalQuizzes++;
           if (dayProgress.quiz.status !== 'not_started') quizzesTaken++;
