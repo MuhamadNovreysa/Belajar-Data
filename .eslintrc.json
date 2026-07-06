@@ -115,6 +115,7 @@
 "tailwindcss/classnames-order": "off",
 "tailwindcss/no-contradicting-classname": "off",
 "tailwindcss/enforces-negative-arbitrary-values": "off",
+    "tailwindcss/enforces-shorthand": "off",
 
     // ============================================
     // NEXT.JS
