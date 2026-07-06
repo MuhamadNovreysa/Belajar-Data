@@ -42,17 +42,17 @@ export default function ProgressPage() {
 
     const dailyEntries = Object.values(progress.daily);
     const totalDays = dailyEntries.length;
-    const completedDays = dailyEntries.filter(d => d.status === 'completed').length;
-    const inProgressDays = dailyEntries.filter(d => d.status === 'in_progress').length;
-    const totalHours = dailyEntries.reduce((sum, d) => sum + d.totalMinutesStudied / 60, 0);
-    const totalSubtopics = dailyEntries.reduce((sum, d) => sum + d.subtopics.length, 0);
+    const completedDays = dailyEntries.filter((d: any) => d.status === 'completed').length;
+    const inProgressDays = dailyEntries.filter((d: any) => d.status === 'in_progress').length;
+    const totalHours = dailyEntries.reduce((sum: number, d: any) => sum + d.totalMinutesStudied / 60, 0);
+    const totalSubtopics = dailyEntries.reduce((sum: number, d: any) => sum + d.subtopics.length, 0);
     const subtopicsCompleted = dailyEntries.reduce(
-      (sum, d) => sum + d.subtopics.filter(s => s.status === 'mastered' || s.status === 'understood').length,
+      (sum: number, d: any) => sum + d.subtopics.filter((s: any) => s.status === 'mastered' || s.status === 'understood').length,
       0
     );
-    const totalQuizzes = dailyEntries.filter(d => d.quiz.quizId).length;
-    const quizzesTaken = dailyEntries.filter(d => d.quiz.status !== 'not_started').length;
-    const quizzesPassed = dailyEntries.filter(d => d.quiz.status === 'passed').length;
+    const totalQuizzes = dailyEntries.filter((d: any) => d.quiz.quizId).length;
+    const quizzesTaken = dailyEntries.filter((d: any) => d.quiz.status !== 'not_started').length;
+    const quizzesPassed = dailyEntries.filter((d: any) => d.quiz.status === 'passed').length;
 
     return {
       totalDays,
@@ -71,6 +71,13 @@ export default function ProgressPage() {
 
   const insights = getInsights();
   const recommendations = getRecommendations();
+
+  const nextMilestone = streak?.milestones?.find((m: any) => !m.isUnlocked);
+  const nextMilestoneData = nextMilestone ? {
+    days: nextMilestone.day,
+    badge: nextMilestone.badge,
+    description: nextMilestone.description,
+  } : null;
 
   const tabs = [
     {
@@ -114,7 +121,7 @@ export default function ProgressPage() {
               totalDays={stats?.totalDays || 0}
               activeDays={stats?.completedDays || 0}
               consistencyScore={streak.consistencyScore || 0}
-              nextMilestone={streak.milestones.find(m => !m.isUnlocked) || null}
+              nextMilestone={nextMilestoneData}
             />
           )}
 
@@ -135,9 +142,9 @@ export default function ProgressPage() {
               dayProgress={dailyProgress}
               completionPercentage={stats?.completionPercentage || 0}
               totalHoursStudied={dailyProgress?.totalMinutesStudied || 0}
-              sessionsCompleted={dailyProgress?.sessions?.filter(s => s.status === 'completed').length || 0}
+              sessionsCompleted={dailyProgress?.sessions?.filter((s: any) => s.status === 'completed').length || 0}
               totalSessions={8}
-              subtopicsCompleted={dailyProgress?.subtopics?.filter(s => s.status === 'mastered' || s.status === 'understood').length || 0}
+              subtopicsCompleted={dailyProgress?.subtopics?.filter((s: any) => s.status === 'mastered' || s.status === 'understood').length || 0}
               totalSubtopics={dailyProgress?.subtopics?.length || 0}
             />
           )}
