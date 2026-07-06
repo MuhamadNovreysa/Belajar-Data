@@ -4,6 +4,7 @@ import { useMemo } from 'react';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { ProgressData } from '@/lib/types';
+import { cn } from '@/lib/utils/helpers'; // ← TAMBAHKAN
 
 interface SkillRadarProps {
   progress: ProgressData | null;
@@ -36,7 +37,7 @@ export function SkillRadar({ progress }: SkillRadarProps) {
 
     dailyEntries.forEach((day) => {
       // Dari subtopics
-      day.subtopics.forEach((subtopic) => {
+      day.subtopics.forEach((subtopic: any) => {
         const skill = Object.keys(skills).find(s =>
           subtopic.subtopicName.toLowerCase().includes(s.toLowerCase()) ||
           subtopic.subtopicName.includes(s)
@@ -48,7 +49,7 @@ export function SkillRadar({ progress }: SkillRadarProps) {
       });
 
       // Dari sessions
-      day.sessions.forEach((session) => {
+      day.sessions.forEach((session: any) => {
         const skill = Object.keys(skills).find(s =>
           session.title.toLowerCase().includes(s.toLowerCase()) ||
           session.title.includes(s)
