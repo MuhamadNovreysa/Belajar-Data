@@ -29,11 +29,12 @@ export function ProjectSubmission({
   const [notes, setNotes] = useState(progress?.notes || '');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [files, setFiles] = useState<{ name: string; url: string; size: number }[]>(
-    progress?.deliverables?.map(d => ({
-      name: d.name,
-      url: d.fileUrl || '',
-      size: d.fileSize || 0,
-    })) || []
+  
+progress?.deliverables?.map((d: any) => ({
+  name: d.name,
+  url: d.fileUrl || '',
+  size: d.fileSize || 0,
+})) || []
   );
   const [uploadStatus, setUploadStatus] = useState<'idle' | 'uploading' | 'success' | 'error'>('idle');
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -70,11 +71,11 @@ export function ProjectSubmission({
       demoUrl,
       presentationUrl,
       notes,
-      deliverables: files.map(f => ({
-        name: f.name,
-        fileUrl: f.url,
-        fileSize: f.size,
-      })),
+      deliverables: files.map((f: any) => ({
+  name: f.name,
+  fileUrl: f.url,
+  fileSize: f.size,
+})),
       submittedAt: new Date().toISOString(),
     });
     setTimeout(() => setIsSubmitting(false), 500);
@@ -86,11 +87,12 @@ export function ProjectSubmission({
       demoUrl,
       presentationUrl,
       notes,
-      deliverables: files.map(f => ({
-        name: f.name,
-        fileUrl: f.url,
-        fileSize: f.size,
-      })),
+      
+deliverables: files.map((f: any) => ({
+  name: f.name,
+  fileUrl: f.url,
+  fileSize: f.size,
+})),
     });
   };
 
@@ -170,7 +172,7 @@ export function ProjectSubmission({
                 </div>
                 {files.length > 0 && (
                   <div className="mt-2 space-y-1">
-                    {files.map((file, index) => (
+                    {files.map((file: any, index: number) => (
                       <div key={index} className="flex items-center justify-between p-2 bg-gray-50 dark:bg-gray-900/50 rounded-lg">
                         <div className="flex items-center gap-2">
                           <span className="text-sm text-gray-700 dark:text-gray-300">{file.name}</span>
