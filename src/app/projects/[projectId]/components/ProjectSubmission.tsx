@@ -40,7 +40,7 @@ progress?.deliverables?.map((d: any) => ({
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const isSubmitted = progress?.status === 'submitted' || progress?.status === 'approved';
-  const isDraft = progress?.status === 'planning' || progress?.status === 'draft';
+  const isDraft = progress?.status === 'not_started' || progress?.status === 'in_progress';
   const canSubmit = !isSubmitted && (isDraft || !progress);
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
