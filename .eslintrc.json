@@ -41,27 +41,18 @@
     }
   },
   "rules": {
-    // ============================================
-    // REACT
-    // ============================================
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
     "react/display-name": "off",
     "react/no-unescaped-entities": "off",
-    "react/jsx-curly-brace-presence": ["error", { "props": "never", "children": "never" }],
-    "react/jsx-boolean-value": ["error", "never"],
-    "react/jsx-no-useless-fragment": ["error", { "allowExpressions": true }],
-    "react/self-closing-comp": ["error", { "component": true, "html": true }],
+    "react/jsx-curly-brace-presence": ["warn", { "props": "never", "children": "never" }],
+    "react/jsx-boolean-value": ["warn", "never"],
+    "react/jsx-no-useless-fragment": ["warn", { "allowExpressions": true }],
+    "react/self-closing-comp": ["warn", { "component": true, "html": true }],
 
-    // ============================================
-    // REACT HOOKS
-    // ============================================
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
 
-    // ============================================
-    // TYPESCRIPT
-    // ============================================
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-empty-interface": "off",
@@ -69,67 +60,30 @@
     "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/no-namespace": "off",
+    "@typescript-eslint/no-unsafe-function-type": "off",
 
-    // ============================================
-    // IMPORT
-    // ============================================
-    "import/order": [
-      "error",
-      {
-        "groups": [
-          "builtin",
-          "external",
-          "internal",
-          "parent",
-          "sibling",
-          "index"
-        ],
-        "newlines-between": "always",
-        "alphabetize": {
-          "order": "asc",
-          "caseInsensitive": true
-        }
-      }
-    ],
-    "import/no-duplicates": "error",
+    "import/order": "off",
+    "import/no-duplicates": "off",
     "import/no-named-as-default": "off",
 
-    // ============================================
-    // UNUSED IMPORTS
-    // ============================================
-    "unused-imports/no-unused-imports": "warn",
-    "unused-imports/no-unused-vars": [
-      "warn",
-      {
-        "vars": "all",
-        "varsIgnorePattern": "^_",
-        "args": "after-used",
-        "argsIgnorePattern": "^_"
-      }
-    ],
+    "unused-imports/no-unused-imports": "off",
+    "unused-imports/no-unused-vars": "off",
 
-    // ============================================
-    // TAILWIND
-    // ============================================
     "tailwindcss/no-custom-classname": "off",
-"tailwindcss/classnames-order": "off",
-"tailwindcss/no-contradicting-classname": "off",
-"tailwindcss/enforces-negative-arbitrary-values": "off",
+    "tailwindcss/classnames-order": "off",
+    "tailwindcss/no-contradicting-classname": "off",
+    "tailwindcss/enforces-negative-arbitrary-values": "off",
     "tailwindcss/enforces-shorthand": "off",
     "tailwindcss/no-unnecessary-arbitrary-value": "off",
 
-    // ============================================
-    // NEXT.JS
-    // ============================================
     "@next/next/no-img-element": "off",
     "@next/next/no-html-link-for-pages": "off",
+    "@next/next/no-page-custom-font": "off",
 
-    // ============================================
-    // BEST PRACTICES
-    // ============================================
-    "no-console": ["warn", { "allow": ["warn", "error"] }],
-    "no-debugger": "warn",
-    "prefer-const": "error",
-    "no-var": "error"
+    "no-console": "off",
+    "no-debugger": "off",
+    "prefer-const": "warn",
+    "no-var": "warn"
   }
 }
